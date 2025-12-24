@@ -1,0 +1,124 @@
+{
+  "run_meta": {
+    "run_timestamp_local": "2025-12-23 15:41:25",
+    "history_start_date": "2020-06-01",
+    "history_end_date_exclusive": "2026-01-01",
+    "forecast_horizon_days": 30,
+    "backtest_days": 30,
+    "segmentation_thresholds": {
+      "ADI_lumpy_threshold_weekly": 1.32,
+      "CV2_lumpy_threshold_weekly": 0.49
+    },
+    "segment_model_policy": [
+      {
+        "maturity": "Legacy (2+ yrs)",
+        "pattern": "Consistent",
+        "models": "ETS weekly seasonal + ARIMA ensemble"
+      },
+      {
+        "maturity": "Legacy (2+ yrs)",
+        "pattern": "Lumpy/Project-based",
+        "models": "TSB (Croston variant)"
+      },
+      {
+        "maturity": "Medium (6-24 mo)",
+        "pattern": "Any",
+        "models": "Prophet if installed else ETS, plus ARIMA"
+      },
+      {
+        "maturity": "New (<6 mo)",
+        "pattern": "Any",
+        "models": "Global XGBoost pooled + ETS fallback"
+      }
+    ]
+  },
+  "counts": {
+    "skus_master": 1,
+    "skus_modeled": 1,
+    "skus_skipped": 0
+  },
+  "skus": [
+    {
+      "item_number": "GFALO9503",
+      "description": "EURO OAK 9.5\" DOMA",
+      "vendor_number": "569",
+      "vendor_name": "FLO.IT S.R.L",
+      "available_sf": 59731.11,
+      "on_po_sf": 0.0,
+      "backorder_sf": 0.0,
+      "lead_time_days": 53.0,
+      "segmentation": {
+        "maturity": "Legacy",
+        "demand_pattern": "Lumpy",
+        "ADI": 1.631578947368421,
+        "CV2": 1.4816190345018503,
+        "first_sales_date": "2023-08-09",
+        "history_days": 862
+      },
+      "ensemble_forecast_daily": {
+        "2025-11-18": 71.59909880874814,
+        "2025-11-19": 0.0,
+        "2025-11-20": 0.6016730992331776,
+        "2025-11-21": 0.0,
+        "2025-11-22": 0.0,
+        "2025-11-23": 0.0,
+        "2025-11-24": 2.4066923969327103,
+        "2025-11-25": 71.59909880874814,
+        "2025-11-26": 0.0,
+        "2025-11-27": 0.6016730992331776,
+        "2025-11-28": 0.0,
+        "2025-11-29": 0.0,
+        "2025-11-30": 0.0,
+        "2025-12-01": 2.4066923969327103,
+        "2025-12-02": 71.59909880874814,
+        "2025-12-03": 0.0,
+        "2025-12-04": 0.6016730992331776,
+        "2025-12-05": 0.0,
+        "2025-12-06": 0.0,
+        "2025-12-07": 0.0,
+        "2025-12-08": 2.4066923969327103,
+        "2025-12-09": 71.59909880874814,
+        "2025-12-10": 0.0,
+        "2025-12-11": 0.6016730992331776,
+        "2025-12-12": 0.0,
+        "2025-12-13": 0.0,
+        "2025-12-14": 0.0,
+        "2025-12-15": 2.4066923969327103,
+        "2025-12-16": 71.59909880874814,
+        "2025-12-17": 0.0
+      }
+    }
+  ],
+  "segmentation": [
+    {
+      "item_number": "GFALO9503",
+      "maturity": "Legacy",
+      "demand_pattern": "Lumpy",
+      "ADI": 1.631578947368421,
+      "CV2": 1.4816190345018503,
+      "first_sales_date": "2023-08-09",
+      "history_days": 862
+    }
+  ],
+  "model_diagnostics": [
+    {
+      "item_number": "GFALO9503",
+      "model_meta": {
+        "models_used": [
+          "TSB"
+        ],
+        "weights": {
+          "TSB": 1.0
+        },
+        "scores": {
+          "TSB": {
+            "wMAPE": 1.793527842350826,
+            "MASE": 0.04522596379892388,
+            "RMSE": 59.83516762659081
+          }
+        }
+      }
+    }
+  ],
+  "skipped": []
+}
